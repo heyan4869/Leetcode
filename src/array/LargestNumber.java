@@ -2,7 +2,12 @@ package array;
 
 public class LargestNumber {
     public static String largestNumber(int[] num) {
+        if (num.length == 0)
+        	return null;
         
+        for (int i = 0; i < num.length; i++) {
+        	
+        }
     	
     	
     	return "";

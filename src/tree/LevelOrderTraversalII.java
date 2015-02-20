@@ -8,12 +8,12 @@ import java.util.Stack;
 
 import tree.LevelOrderTraversal.LevelNode;
 
-public class LevelOrderTraversal {
+public class LevelOrderTraversalII {
 	static class LevelNode {
 		TreeNode node;
 		int level;
 	}
-	public static List<List<Integer>> levelOrder(TreeNode root) {
+	public static List<List<Integer>> LevelOrderTraversalII(TreeNode root) {
 		// initial the list for storing the list
 			List<List<Integer>> result = new ArrayList<List<Integer>>();
 			List<Integer> row = new ArrayList<Integer>();
@@ -31,6 +31,8 @@ public class LevelOrderTraversal {
 		
 		// add the root in the queue
 		q.add(n);
+		
+		Stack<List<Integer>> s = new Stack<List<Integer>>();
 		
 		
 		// level by level
@@ -65,8 +67,13 @@ public class LevelOrderTraversal {
 					break;
 			}
 			
-			result.add(row);
+			s.push(row);
 			
+		}
+		
+		// reverse the top to down order
+		while (!s.isEmpty()) {
+			result.add(s.pop());
 		}
 		
 		return result;
@@ -78,10 +85,8 @@ public class LevelOrderTraversal {
 		root.right = new TreeNode(20);
 		root.right.left = new TreeNode(15);
 		root.right.right = new TreeNode(7);
-		List<List<Integer>> result = levelOrder(root);
+		List<List<Integer>> result = LevelOrderTraversalII(root);
 		//System.out.println(root.right.val);
 		System.out.println(result);
-	
 	}
-		
 }
