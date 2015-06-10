@@ -7,4 +7,11 @@ public class ListNode {
          val = x;
          next = null;
      }
+     public void printAll() {
+    	 ListNode backup = this;
+    	 while (backup != null) {
+    		 System.out.println(backup.val);
+    		 backup = backup.next;
+    	 }
+     }
 }
